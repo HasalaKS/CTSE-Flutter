@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
 
-import 'deleteView.dart';
+import 'screens/delete_view/deleteView.dart';
 
 void main() {
   runApp(
