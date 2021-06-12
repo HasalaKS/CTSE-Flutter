@@ -1,10 +1,9 @@
-
 class Category {
   final String name;
-  final int numOfCourses;
+  final int numOfMinutes;
   final String image;
 
-  Category(this.name, this.numOfCourses, this.image);
+  Category(this.name, this.numOfMinutes, this.image);
 }
 
 List<Category> categories = categoriesData
@@ -12,12 +11,11 @@ List<Category> categories = categoriesData
     .toList();
 
 var categoriesData = [
-  {"name": "Marketing", 'courses': 17, 'image': "assets/images/marketing.png"},
+  {"name": "React", 'courses': 17, 'image': "assets/images/react.jpg"},
   {"name": "UX Design", 'courses': 25, 'image': "assets/images/ux_design.png"},
-  {
-    "name": "Photography",
-    'courses': 13,
-    'image': "assets/images/photography.png"
-  },
-  {"name": "Business", 'courses': 17, 'image': "assets/images/business.png"},
+  {"name": "Business Analytics", 'courses': 17, 'image': "assets/images/businessAnalytics.jpg"},
+  {"name": "Python", 'courses': 17, 'image': "assets/images/python.png"},
+  {"name": "AI", 'courses': 13, 'image': "assets/images/photography.png"},
+  {"name": "Cloud Computing", 'courses': 17, 'image': "assets/images/cloudComputing.jpg"},
+  {"name": "Computer Security", 'courses': 17, 'image': "assets/images/computerSecurity.jpg"},
 ];
