@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
 // Colors
+const kTextColor = Color(0xFF0D1333);
+
+// My Text Styles
+const kHeadingextStyle = TextStyle(
+  fontSize: 30,
 const primaryDark = Color(0xFF9A48D0);
 const primaryDarkSemi = Color(0xFFb980de);
 const primary = Color(0xFFDFC5F0);
@@ -36,6 +41,17 @@ const kHeadingextStyle = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
+const kTitleTextStyle = TextStyle(
+  fontSize: 25,
+  color: Colors.black54,
+  fontWeight: FontWeight.bold,
+);
+
+const kSubtitleTextSyule = TextStyle(
+  fontSize: 20,
+  color: Colors.white,
+  fontWeight: FontWeight.bold,
+);
 const kSubheadingextStyle = TextStyle(
   fontSize: 18,
   color: Color(0xFF61688B),
