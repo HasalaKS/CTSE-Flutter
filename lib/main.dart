@@ -1,7 +1,7 @@
 import 'package:ctse_flutter_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'details_screen.dart';
+import 'add_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Course App',
       theme: ThemeData(),
-      home: DetailsScreen(),
+      home: AddScreen(),
     );
   }
 }

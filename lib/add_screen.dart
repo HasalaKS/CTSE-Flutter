@@ -5,14 +5,14 @@ import 'package:image_picker/image_picker.dart';
 
 import 'constants.dart';
 
-class DetailsScreen extends StatefulWidget {
-  DetailsScreen({Key key}) : super(key: key);
+class AddScreen extends StatefulWidget {
+  AddScreen({Key key}) : super(key: key);
 
   @override
-    _DetailsScreenState createState() => _DetailsScreenState();
+    _AddScreenState createState() => _AddScreenState();
 }
 
-class _DetailsScreenState extends State<DetailsScreen> {
+class _AddScreenState extends State<AddScreen> {
   final ImagePicker _picker = ImagePicker();
   PickedFile _imageFile;
 
