@@ -48,7 +48,7 @@ class _AddScreenState extends State<AddScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Text("Details", style: kSubheadingextStyle),
+                        Text("Details", style: kSubheadingextStyle2),
                         techImage(),
                       ],
                     ),
@@ -97,7 +97,7 @@ class _AddScreenState extends State<AddScreen> {
                         ],
                       )
                     ),
-                    Text("Description", style: kSubheadingextStyle),
+                    Text("Description", style: kSubheadingextStyle2),
                     Container(
                         //padding: MediaQuery.of(context).viewInsets,
                         margin: EdgeInsets.only(top: 10),
@@ -107,7 +107,7 @@ class _AddScreenState extends State<AddScreen> {
                             TextFormField(
                               keyboardType: TextInputType.multiline,
                               maxLength: 300,
-                              maxLines: 9,
+                              maxLines: 3,
                               style: TextStyle(fontSize: 18, color: Colors.black),
                               decoration: InputDecoration(
                                 fillColor: Color(0xFFF5F5F7),
@@ -129,7 +129,7 @@ class _AddScreenState extends State<AddScreen> {
                   ],
                 ),
               ),
-              //SizedBox(height: 60),
+              //SizedBox(height: 30),
               Expanded(
                 child: Container(
                   child: Stack(
@@ -140,10 +140,10 @@ class _AddScreenState extends State<AddScreen> {
                         bottom: 0,
                         child: Container(
                           padding: EdgeInsets.all(20),
-                          height: 100,
+                          //height: 200,
                           width: double.infinity,
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Colors.black,
                             borderRadius: new BorderRadius.only(
                               topLeft: const Radius.circular(30.0),
                               topRight: const Radius.circular(30.0),

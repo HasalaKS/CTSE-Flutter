@@ -5,6 +5,8 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:technology_app/model/category.dart';
 import 'package:technology_app/details_screen.dart';
 
+import 'add_screen.dart';
+
 class MainMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -41,7 +43,15 @@ class MainMenu extends StatelessWidget {
                         color: primaryDarkSemi,
                         shape: BoxShape.circle,
                       ),
-                      child: SvgPicture.asset("assets/icons/menu.svg"),
+                      child: IconButton(
+                          icon: SvgPicture.asset("assets/icons/menu.svg"),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => AddScreen()),
+                            );
+                          }
+                      )
                     ),
                   ),
                   Text("Welcome,", style: mainMenuHeading),
