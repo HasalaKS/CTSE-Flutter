@@ -1,5 +1,5 @@
-import 'package:ctse_flutter_app/screens/delete_dialog_view/deleteDialogView.dart';
 import 'package:flutter/material.dart';
+import 'package:technology_app/screens/delete_dialog_view/deleteDialogView.dart';
 
 class DialogHelper {
 

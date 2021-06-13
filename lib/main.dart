@@ -1,11 +1,11 @@
 import 'dart:async';
 
-import 'package:ctse_flutter_app/edit/edit.dart';
-import 'package:ctse_flutter_app/constants.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:technology_app/main_menu_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
+import 'package:technology_app/main_menu_screen.dart';
+
+import 'constants.dart';
 
 void main() => runApp(
     DevicePreview(
@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: SplashScreen(),
       theme: ThemeData(
         fontFamily: 'Nunito',
@@ -38,7 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
     // TODO: implement initState
     super.initState();
     Timer(Duration(seconds: 7), (){
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => Edit()));
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => MainMenu()));
     });
   }
 

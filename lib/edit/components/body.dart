@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ctse_flutter_app/edit/components/background.dart';
-import 'package:ctse_flutter_app/components/rounded_button.dart';
-import 'package:ctse_flutter_app/components/rounded_input_field.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:technology_app/components/rounded_button.dart';
+import 'package:technology_app/components/rounded_input_field.dart';
+import 'package:technology_app/edit/components/background.dart';
 
 class Body extends StatelessWidget {
   @override

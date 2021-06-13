@@ -1,5 +1,6 @@
-import 'package:ctse_flutter_app/common_helpers/DialogHelper.dart';
 import 'package:flutter/material.dart';
+import 'package:technology_app/common_helpers/DialogHelper.dart';
+import 'package:technology_app/edit/edit.dart';
 
 import '../../../constants.dart';
 
@@ -62,7 +63,10 @@ class _TechnologyListState extends State<TechnologyList> {
                       ),
                       color: Colors.green.shade200,
                       onPressed: () {
-                        DialogHelper.deleteConform(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Edit()),
+                        );
                       },
                       child: Icon(Icons.edit , color: Colors.white, size: 39),
                     ),

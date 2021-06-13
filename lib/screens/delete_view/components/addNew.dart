@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:technology_app/add_screen.dart';
 
 import '../../../constants.dart';
 
@@ -32,9 +33,17 @@ class AddNew extends StatelessWidget {
                 borderRadius: BorderRadius.circular(40),
                 color: Colors.deepPurple.shade300,
               ),
-              child: Text(
-                  "Add new",
-                  style: kSubtitleTextSyule
+              child: TextButton(
+                child: Text(
+                    "Add new",
+                    style: kSubtitleTextSyule
+                ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => AddScreen()),
+                    );
+                  }
               ),
             ),
           )

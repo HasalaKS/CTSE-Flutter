@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:technology_app/model/category.dart';
 import 'package:technology_app/details_screen.dart';
+import 'package:technology_app/screens/delete_view/deleteView.dart';
 
 import 'add_screen.dart';
 
@@ -48,7 +49,7 @@ class MainMenu extends StatelessWidget {
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => AddScreen()),
+                              MaterialPageRoute(builder: (context) => DeleteView()),
                             );
                           }
                       )

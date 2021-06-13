@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 
-// Colors
-const kTextColor = Color(0xFF0D1333);
+
 
 // My Text Styles
 const kHeadingextStyle = TextStyle(
   fontSize: 30,
+);
+
+// Colors
+const kPrimaryLightColor = Color(0xFFDFC5F0);
+const kPrimaryColor = Color(0xFFDFC5F0);
 const primaryDark = Color(0xFF9A48D0);
 const primaryDarkSemi = Color(0xFFb980de);
 const primary = Color(0xFFDFC5F0);
@@ -35,7 +39,7 @@ const mainMenuSubHeadingNormal = TextStyle(
   color: Colors.white,
   height:1.3,
 );
-const kHeadingextStyle = TextStyle(
+const kHeadingextStyle1 = TextStyle(
   fontSize: 45,
   color: kTextColor,
   fontWeight: FontWeight.bold,
@@ -64,13 +68,13 @@ const kSubheadingextStyle2 = TextStyle(
   height: 2,
 );
 
-const kTitleTextStyle = TextStyle(
+const kTitleTextStyle1 = TextStyle(
   fontSize: 20,
   color: kTextColor,
   fontWeight: FontWeight.bold,
 );
 
-const kSubtitleTextSyule = TextStyle(
+const kSubtitleTextSyule1 = TextStyle(
   fontSize: 18,
   color: kTextColor,
   // fontWeight: FontWeight.bold,

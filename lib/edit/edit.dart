@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ctse_flutter_app/edit/components/body.dart';
+import 'package:technology_app/edit/components/body.dart';
 
 class Edit extends StatelessWidget {
   @override
