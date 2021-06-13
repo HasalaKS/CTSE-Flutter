@@ -14,7 +14,7 @@ class DialogHeader extends StatelessWidget {
         padding: const EdgeInsets.only(top: 15 , bottom: 15 , left: 10),
         child: Icon(Icons.restore_from_trash ,
                 color: Colors.deepPurple.shade300,
-                size:70
+                size:60
             )
       ),
     );

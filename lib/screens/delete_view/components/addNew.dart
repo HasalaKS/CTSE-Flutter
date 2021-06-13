@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:technology_app/add_screen.dart';
 
 import '../../../constants.dart';
@@ -21,7 +22,7 @@ class AddNew extends StatelessWidget {
               BoxShadow(
                 offset: Offset(0, 4),
                 blurRadius: 50,
-                color: kTextColor.withOpacity(.1),
+                color: kDeleteFuncTextColor.withOpacity(.1),
               ),
             ],
           ),
@@ -36,7 +37,10 @@ class AddNew extends StatelessWidget {
               child: TextButton(
                 child: Text(
                     "Add new",
-                    style: kSubtitleTextSyule
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                    )
                 ),
                   onPressed: () {
                     Navigator.push(
