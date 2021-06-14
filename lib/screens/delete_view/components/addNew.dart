@@ -34,20 +34,15 @@ class AddNew extends StatelessWidget {
                 color: Colors.deepPurple.shade300,
               ),
               child: TextButton(
-                child: Text(
-                    "Add new",
-                    style: kSubtitleTextSyule
-                ),
+                  child: Text("Add new", style: kSubtitleTextSyule),
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => AddScreen()),
                     );
-                  }
-              ),
+                  }),
             ),
-          )
-      ),
+          )),
     );
   }
 }

@@ -6,7 +6,6 @@ import 'components/addNew.dart';
 import 'components/header.dart';
 import 'components/technologyList.dart';
 
-
 class DeleteView extends StatefulWidget {
   @override
   _DeleteViewState createState() => _DeleteViewState();

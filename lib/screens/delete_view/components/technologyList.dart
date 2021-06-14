@@ -13,7 +13,7 @@ class _TechnologyListState extends State<TechnologyList> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top:30 , left: 26),
+      padding: const EdgeInsets.only(top: 30, left: 26),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -29,30 +29,30 @@ class _TechnologyListState extends State<TechnologyList> {
                   decoration: BoxDecoration(
                       color: Colors.black12,
                       shape: BoxShape.rectangle,
-                      borderRadius: BorderRadius.all(Radius.circular(24))
-                  ),
+                      borderRadius: BorderRadius.all(Radius.circular(24))),
                 ),
-                SizedBox(width : 18),
+                SizedBox(width: 18),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text("React JS",
+                    Text(
+                      "React JS",
                       style: TextStyle(
                         fontSize: 25,
                         color: kTextColor,
                         fontWeight: FontWeight.normal,
                       ),
                     ),
-                    Text("Learn in 5 min",
+                    Text(
+                      "Learn in 5 min",
                       style: TextStyle(
                           fontSize: 20,
                           color: Colors.black54,
-                          fontWeight: FontWeight.normal
-                      ),
+                          fontWeight: FontWeight.normal),
                     ),
                   ],
                 ),
-                SizedBox(width : 18),
+                SizedBox(width: 18),
                 Row(
                   children: <Widget>[
                     FlatButton(
@@ -68,9 +68,9 @@ class _TechnologyListState extends State<TechnologyList> {
                           MaterialPageRoute(builder: (context) => Edit()),
                         );
                       },
-                      child: Icon(Icons.edit , color: Colors.white, size: 39),
+                      child: Icon(Icons.edit, color: Colors.white, size: 39),
                     ),
-                    SizedBox(width : 10),
+                    SizedBox(width: 10),
                     FlatButton(
                       height: 65,
                       minWidth: 30,
@@ -81,7 +81,11 @@ class _TechnologyListState extends State<TechnologyList> {
                       onPressed: () {
                         DialogHelper.deleteConform(context);
                       },
-                      child: Icon(Icons.restore_from_trash , color: Colors.white, size: 40,),
+                      child: Icon(
+                        Icons.restore_from_trash,
+                        color: Colors.white,
+                        size: 40,
+                      ),
                     ),
                   ],
                 ),
