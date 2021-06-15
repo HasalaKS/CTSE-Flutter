@@ -13,9 +13,21 @@ List<Category> categories = categoriesData
 var categoriesData = [
   {"name": "React", 'courses': 17, 'image': "assets/images/react.jpg"},
   {"name": "UX Design", 'courses': 25, 'image': "assets/images/ux_design.png"},
-  {"name": "Business Analytics", 'courses': 17, 'image': "assets/images/businessAnalytics.jpg"},
+  {
+    "name": "Business Analytics",
+    'courses': 17,
+    'image': "assets/images/businessAnalytics.jpg"
+  },
   {"name": "Python", 'courses': 17, 'image': "assets/images/python.png"},
   {"name": "AI", 'courses': 13, 'image': "assets/images/photography.png"},
-  {"name": "Cloud Computing", 'courses': 17, 'image': "assets/images/cloudComputing.jpg"},
-  {"name": "Computer Security", 'courses': 17, 'image': "assets/images/computerSecurity.jpg"},
+  {
+    "name": "Cloud Computing",
+    'courses': 17,
+    'image': "assets/images/cloudComputing.jpg"
+  },
+  {
+    "name": "Computer Security",
+    'courses': 17,
+    'image': "assets/images/computerSecurity.jpg"
+  },
 ];

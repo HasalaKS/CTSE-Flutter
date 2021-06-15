@@ -56,12 +56,12 @@ class ViewHeader extends StatelessWidget {
                 children: <Widget>[
                   SvgPicture.asset("assets/icons/person.svg"),
                   SizedBox(width: 10),
-                  Text("100 follows" ,
+                  Text(
+                    "100 follows",
                     style: TextStyle(
                         fontSize: 18,
                         color: Colors.black54,
-                        fontWeight: FontWeight.normal
-                    ),
+                        fontWeight: FontWeight.normal),
                   ),
                 ],
               ),
@@ -70,12 +70,12 @@ class ViewHeader extends StatelessWidget {
                 children: <Widget>[
                   SvgPicture.asset("assets/icons/star.svg"),
                   SizedBox(width: 10),
-                  Text("Your ratings 3.5" ,
+                  Text(
+                    "Your ratings 3.5",
                     style: TextStyle(
                         fontSize: 18,
                         color: Colors.black54,
-                        fontWeight: FontWeight.normal
-                    ),
+                        fontWeight: FontWeight.normal),
                   ),
                 ],
               ),

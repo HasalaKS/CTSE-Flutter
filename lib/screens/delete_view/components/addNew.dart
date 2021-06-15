@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:technology_app/add_screen.dart';
 
 import '../../../constants.dart';
@@ -47,11 +46,9 @@ class AddNew extends StatelessWidget {
                       context,
                       MaterialPageRoute(builder: (context) => AddScreen()),
                     );
-                  }
-              ),
+                  }),
             ),
-          )
-      ),
+          )),
     );
   }
 }

@@ -1,223 +1,269 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:image_picker/image_picker.dart';
-
+import 'package:technology_app/screens/delete_view/deleteView.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'constants.dart';
 
 class AddScreen extends StatefulWidget {
   AddScreen({Key key}) : super(key: key);
 
   @override
-    _AddScreenState createState() => _AddScreenState();
+  _AddScreenState createState() => _AddScreenState();
 }
 
 class _AddScreenState extends State<AddScreen> {
+  final formKey = GlobalKey<FormState>();
   final ImagePicker _picker = ImagePicker();
+
+  TextEditingController techName = TextEditingController();
+  TextEditingController techSite = TextEditingController();
+  TextEditingController techDesc = TextEditingController();
+  TextEditingController techImage = TextEditingController();
+
+  //File techImageFile;
+  String imgUrl;
+
   PickedFile _imageFile;
+  File imgSelected;
+
+  sendData() async {
+    if (formKey.currentState.validate()) {
+      var storeImage = FirebaseStorage.instance.ref().child(imgSelected.path);
+      var uploadTask = storeImage.putFile(imgSelected);
+      imgUrl = await (await uploadTask).ref.getDownloadURL();
+
+      await FirebaseFirestore.instance.collection("Technologies").add({
+        'techName': techName.text,
+        'techSite': techSite.text,
+        'techDesc': techDesc.text,
+        'techImage': imgUrl.toString()
+      });
+
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => DeleteView()),
+      );
+
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: const Text('Successfully added.'),
+        duration: const Duration(seconds: 3),
+      ));
+
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: const Text('Fields cannot be empty.'),
+        duration: const Duration(seconds: 3),
+      ));    }
+  }
+
+  Future takePhoto(ImageSource source) async {
+    final pickedFile = await _picker.getImage(
+      source: source,
+    );
+    setState(() {
+      //_imageFile = pickedFile;
+      imgSelected = File(pickedFile.path);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    //final isKeyboard = MediaQuery.of(context).viewInsets.bottom != 0;
-    //FocusNode myFocusNode = new FocusNode();
-
     return Scaffold(
-      //resizeToAvoidBottomInset: false,
-      body: SingleChildScrollView(
-        child: Container(
-          //width: double.infinity,
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
-          ),
-          child: Column(
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(left: 20, top: 50, right: 20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+        body: ListView(children: <Widget>[
+          Padding(
+              padding: EdgeInsets.only(left: 20, top: 20, right: 20),
+              child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: <
+                  Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        SvgPicture.asset("assets/icons/arrow-left.svg"),
-                        SvgPicture.asset("assets/icons/more-vertical.svg"),
-                      ],
-                    ),
-                    SizedBox(height: 40),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text("Details", style: kSubheadingextStyle2),
-                        techImage(),
-                      ],
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 20),
-                      padding: EdgeInsets.symmetric(horizontal:0, vertical: 16),
-                      child: Column(
-                        children: [
-                          TextFormField(
-                            style: TextStyle(fontSize: 18, color: Colors.black),
-                            decoration: InputDecoration(
-                              labelText: "Name",
-                              labelStyle: TextStyle(fontSize: 16, color: Color(0xFFA0A5BD)),
-                              fillColor: Color(0xFFF5F5F7),
-                              filled: true,
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: BorderSide(color: Color(0xFF4285F4), width: 2),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide(color: Color(0xFFA0A5BD))
-                              ),
-                              contentPadding: EdgeInsets.all(20),
-                            ),
-                          ),
-                          SizedBox(height: 12.0,),
-                          TextFormField(
-                            style: TextStyle(fontSize: 18, color: Colors.black),
-                            decoration: InputDecoration(
-                              labelText: "Documentation",
-                              labelStyle: TextStyle(fontSize: 16, color: Color(0xFFA0A5BD)),
-                              fillColor: Color(0xFFF5F5F7),
-                              filled: true,
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: BorderSide(color: Color(0xFF4285F4), width: 2),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide(color: Color(0xFFA0A5BD))
-                              ),
-                              contentPadding: EdgeInsets.all(20),
-                            ),
-                          ),
-                        ],
-                      )
-                    ),
-                    Text("Description", style: kSubheadingextStyle2),
-                    Container(
-                        //padding: MediaQuery.of(context).viewInsets,
-                        margin: EdgeInsets.only(top: 10),
-                        padding: EdgeInsets.symmetric(vertical: 16),
-                        child: Column(
-                          children: [
-                            TextFormField(
-                              keyboardType: TextInputType.multiline,
-                              maxLength: 300,
-                              maxLines: 3,
-                              style: TextStyle(fontSize: 18, color: Colors.black),
-                              decoration: InputDecoration(
-                                fillColor: Color(0xFFF5F5F7),
-                                filled: true,
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide(color: Color(0xFF4285F4), width: 2),
-                                ),
-                                enabledBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                    borderSide: BorderSide(color: Color(0xFFA0A5BD))
-                                ),
-                                contentPadding: EdgeInsets.all(20),
-                              ),
-                            ),
-                          ],
-                        )
-                    ),
+                    SvgPicture.asset("assets/icons/arrow-left.svg"),
+                    SvgPicture.asset("assets/icons/more-vertical.svg"),
                   ],
                 ),
-              ),
-              //SizedBox(height: 30),
-              Expanded(
-                child: Container(
-                  child: Stack(
-                    children: <Widget>[
-                      Positioned(
-                        right: 0,
-                        left: 0,
-                        bottom: 0,
-                        child: Container(
-                          padding: EdgeInsets.all(20),
-                          //height: 200,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: new BorderRadius.only(
-                              topLeft: const Radius.circular(30.0),
-                              topRight: const Radius.circular(30.0),
-                            ),
-                            boxShadow: [
-                              BoxShadow(
-                                offset: Offset(0, 4),
-                                blurRadius: 50,
-                                color: kTextColor.withOpacity(.1),
-                              ),
-                            ],
-                          ),
-                          child: Row(
-                            children: <Widget>[
-                              Expanded(
-                                child: Container(
-                                  alignment: Alignment.center,
-                                  height: 56,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(40),
-                                    color: kBlueColor,
-                                  ),
-                                  child: Text(
-                                    "Submit",
-                                    style: kSubtitleTextSyule.copyWith(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
+                SizedBox(height: 40),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text("Details", style: kSubheadingextStyle2),
+                    techImageFunc(),
+                  ],
+                ),
+                SizedBox(height: 20),
+                Form(
+                  key: formKey,
+                  child: Column(children: [
+                    TextFormField(
+                      controller: techName,
+                      validator: (value){
+                        if (value.isEmpty){
+                          return "Field cannot be empty.";
+                        } else {
+                          return null;
+                        }
+                      },
+                      style: TextStyle(fontSize: 18, color: Colors.black),
+                      decoration: InputDecoration(
+                        labelText: "Name",
+                        labelStyle: TextStyle(fontSize: 16, color: Color(0xFFA0A5BD)),
+                        fillColor: Color(0xFFF5F5F7),
+                        filled: true,
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(color: Color(0xFF4285F4), width: 2),
                         ),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(color: Color(0xFFA0A5BD))),
+                        contentPadding: EdgeInsets.all(20),
                       ),
-                    ],
+                    ),
+                    SizedBox(
+                      height: 12.0,
+                    ),
+                    TextFormField(
+                      controller: techSite,
+                      validator: (value){
+                        if (value.isEmpty){
+                          return "Field cannot be empty.";
+                        } else {
+                          return null;
+                        }
+                      },
+                      style: TextStyle(fontSize: 18, color: Colors.black),
+                      decoration: InputDecoration(
+                        labelText: "Documentation",
+                        labelStyle: TextStyle(fontSize: 16, color: Color(0xFFA0A5BD)),
+                        fillColor: Color(0xFFF5F5F7),
+                        filled: true,
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(color: Color(0xFF4285F4), width: 2),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(color: Color(0xFFA0A5BD))),
+                        contentPadding: EdgeInsets.all(20),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 35.0,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text("Description", style: kSubheadingextStyle2),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 12.0,
+                    ),
+                    TextFormField(
+                      controller: techDesc,
+                      validator: (value){
+                        if (value.isEmpty){
+                          return "Field cannot be empty.";
+                        } else {
+                          return null;
+                        }
+                      },
+                      keyboardType: TextInputType.multiline,
+                      maxLength: 300,
+                      maxLines: 10,
+                      style: TextStyle(fontSize: 18, color: Colors.black),
+                      decoration: InputDecoration(
+                        fillColor: Color(0xFFF5F5F7),
+                        filled: true,
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(color: Color(0xFF4285F4), width: 2),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(color: Color(0xFFA0A5BD))),
+                        contentPadding: EdgeInsets.all(20),
+                      ),
+                    ),
+                  ]),
+                )
+              ])),
+          Container(
+            padding: EdgeInsets.all(20),
+            height: 110,
+            width: double.maxFinite,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: new BorderRadius.only(
+                topLeft: const Radius.circular(30.0),
+                topRight: const Radius.circular(30.0),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  offset: Offset(0, 4),
+                  blurRadius: 50,
+                  color: kTextColor.withOpacity(.1),
+                ),
+              ],
+            ),
+            child: Row(children: <Widget>[
+              Expanded(
+                child: InkWell(
+                  onTap: (){sendData();},
+                  child: Container(
+                    alignment: Alignment.center,
+                    height: 56,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(40),
+                      color: kBlueColor,
+                    ),
+                    child: Text(
+                      "Submit",
+                      style: kSubtitleTextSyule.copyWith(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
-        ),
-      )
-    );
+              )
+            ]),
+          )
+        ]));
   }
 
-  Widget techImage() {
+  Widget techImageFunc() {
     return Stack(
       children: <Widget>[
         CircleAvatar(
           radius: 50.0,
-          backgroundImage: _imageFile == null ? AssetImage("assets/images/defaultTech.png") : FileImage(File(_imageFile.path)),
+          backgroundImage: imgSelected == null
+              ? AssetImage("assets/images/defaultTech.png")
+              : FileImage(imgSelected),
         ),
         Positioned(
-          top: 38,
-          left:38,
-          child: InkWell(
-            onTap: () {
-              showModalBottomSheet(
-                context: context,
-                builder: ((builder) => bottomSheet()),
-              );
-            },
-            child: Icon(
-              Icons.camera_alt,
-              size:25,
-            ),
-          )
-        )
+            top: 38,
+            left: 38,
+            child: InkWell(
+              onTap: () {
+                showModalBottomSheet(
+                  context: context,
+                  builder: ((builder) => bottomSheet()),
+                );
+              },
+              child: Icon(
+                Icons.camera_alt,
+                size: 25,
+              ),
+            ))
       ],
     );
   }
 
-  Widget bottomSheet(){
+  Widget bottomSheet() {
     return Container(
       height: 100.0,
       width: MediaQuery.of(context).size.width,
@@ -256,14 +302,4 @@ class _AddScreenState extends State<AddScreen> {
       ),
     );
   }
-
-  void takePhoto(ImageSource source) async {
-    final pickedFile = await _picker.getImage(
-      source: source,
-    );
-    setState(() {
-      _imageFile = pickedFile;
-    });
-  }
-
 }
