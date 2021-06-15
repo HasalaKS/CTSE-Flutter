@@ -21,7 +21,7 @@ class AddNew extends StatelessWidget {
               BoxShadow(
                 offset: Offset(0, 4),
                 blurRadius: 50,
-                color: kTextColor.withOpacity(.1),
+                color: kDeleteFuncTextColor.withOpacity(.1),
               ),
             ],
           ),
@@ -34,7 +34,13 @@ class AddNew extends StatelessWidget {
                 color: Colors.deepPurple.shade300,
               ),
               child: TextButton(
-                  child: Text("Add new", style: kSubtitleTextSyule),
+                child: Text(
+                    "Add new",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                    )
+                ),
                   onPressed: () {
                     Navigator.push(
                       context,

@@ -77,3 +77,7 @@ const kSubtitleTextSyule1 = TextStyle(
   color: kTextColor,
   // fontWeight: FontWeight.bold,
 );
+
+// Constant related to delete function
+const kDeleteFuncTextColor = Color(0xFF0D1333);
+

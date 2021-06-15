@@ -12,9 +12,12 @@ class DialogHeader extends StatelessWidget {
             topLeft: Radius.circular(20), topRight: Radius.circular(20)),
       ),
       child: Padding(
-          padding: const EdgeInsets.only(top: 15, bottom: 15, left: 10),
-          child: Icon(Icons.restore_from_trash,
-              color: Colors.deepPurple.shade300, size: 70)),
+        padding: const EdgeInsets.only(top: 15 , bottom: 15 , left: 10),
+        child: Icon(Icons.restore_from_trash ,
+                color: Colors.deepPurple.shade300,
+                size:60
+            )
+      ),
     );
   }
 }
