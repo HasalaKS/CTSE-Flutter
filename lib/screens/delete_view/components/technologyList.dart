@@ -6,6 +6,8 @@ import 'package:technology_app/edit/edit.dart';
 import 'package:technology_app/model/technology.dart';
 
 import '../../../constants.dart';
+import '../../../edit/edit.dart';
+import '../../../model/technology.dart';
 
 class TechnologyList extends StatefulWidget {
   @override
@@ -111,7 +113,7 @@ class _TechnologyListState extends State<TechnologyList> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Edit()),
+                          MaterialPageRoute(builder: (context) => Edit(technology: technology)),
                         );
                       }
                   )
