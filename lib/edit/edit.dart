@@ -42,6 +42,10 @@ class _EditState extends State<Edit> {
   updateTechnology(){
     try{
       FirebaseFirestore.instance.runTransaction((transaction) async{
+        var storeImage = FirebaseStorage.instance.ref().child(imgSelected.path);
+        var uploadTask = storeImage.putFile(imgSelected);
+        imgUrl = await (await uploadTask).ref.getDownloadURL();
+
         await transaction.update(widget.technology.documentReference, {'techName': techNameController.text, 'techSite': techSiteController.text, 'techDesc': techDescController.text, 'techImage': imgUrl.toString()});
 
         Navigator.push(
@@ -146,14 +150,14 @@ class _EditState extends State<Edit> {
                       Container(
                         //padding: MediaQuery.of(context).viewInsets,
                           margin: EdgeInsets.only(top: 10),
-                          padding: EdgeInsets.symmetric(vertical: 16),
+                          padding: EdgeInsets.symmetric(vertical: 20),
                           child: Column(
                             children: [
                               TextFormField(
                                 controller: techDescController,
                                 keyboardType: TextInputType.multiline,
                                 maxLength: 300,
-                                maxLines: 3,
+                                maxLines: 7,
                                 style: TextStyle(fontSize: 18, color: Colors.black),
                                 decoration: InputDecoration(
                                   fillColor: Color(0xFFF5F5F7),
@@ -301,7 +305,7 @@ class _EditState extends State<Edit> {
       source: source,
     );
     setState(() {
-      _imageFile = pickedFile;
+      imgSelected = File(pickedFile.path);
     });
   }
 
