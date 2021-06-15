@@ -42,7 +42,7 @@ class ViewHeader extends StatelessWidget {
             ],
           ),
           SizedBox(height: 30),
-          Text("Hey Jane..,",
+          Text("Hey Jane!",
             style: TextStyle(
                 fontSize: 28,
                 color: kDeleteFuncTextColor,
@@ -71,7 +71,7 @@ class ViewHeader extends StatelessWidget {
                   SvgPicture.asset("assets/icons/star.svg"),
                   SizedBox(width: 10),
                   Text(
-                    "Your ratings 3.5",
+                    "Your Level: 3",
                     style: TextStyle(
                         fontSize: 18,
                         color: Colors.black54,

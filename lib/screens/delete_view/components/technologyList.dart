@@ -15,7 +15,7 @@ class TechnologyList extends StatefulWidget {
 class _TechnologyListState extends State<TechnologyList> {
 
   // Initialize the collection Name
-  String fireStoreCollectionName = "TechnologyDB";
+  String fireStoreCollectionName = "Technologies";
 
   // Method to get all technologies from the database
   getAllTechnologies(){
@@ -35,6 +35,7 @@ class _TechnologyListState extends State<TechnologyList> {
   Widget buildBody(BuildContext context){
     return StreamBuilder<QuerySnapshot>(
       stream: getAllTechnologies(),
+      // ignore: missing_return
       builder: (context,snapshot){
         if(snapshot.hasError){
           return Text('Error ${snapshot.error}');
@@ -68,8 +69,8 @@ class _TechnologyListState extends State<TechnologyList> {
               shape: BoxShape.rectangle,
               borderRadius: BorderRadius.all(Radius.circular(24)),
               image: DecorationImage(
-                scale: 4.2,
-                image: AssetImage("assets/images/${technology.techImage}"),
+                scale: 3.0,
+                image: NetworkImage(technology.techImage),
                 alignment: Alignment.center,
               ),
             ),

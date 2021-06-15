@@ -15,7 +15,7 @@ class DeleteDialog extends StatelessWidget {
   }
 
   _buildChild(BuildContext context) => Container(
-      height: 280,
+      height: 240,
       width: 320,
       decoration: BoxDecoration(
           color: Colors.deepPurple.shade300,

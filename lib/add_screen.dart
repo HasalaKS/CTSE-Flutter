@@ -218,7 +218,7 @@ class _AddScreenState extends State<AddScreen> {
                     height: 56,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(40),
-                      color: kBlueColor,
+                      color: Colors.deepPurple.shade300,
                     ),
                     child: Text(
                       "Submit",

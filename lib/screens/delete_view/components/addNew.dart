@@ -35,9 +35,10 @@ class AddNew extends StatelessWidget {
               ),
               child: TextButton(
                 child: Text(
-                    "Add new",
+                    "Add New",
                     style: TextStyle(
                       fontSize: 20,
+                      fontWeight: FontWeight.bold,
                       color: Colors.white,
                     )
                 ),
