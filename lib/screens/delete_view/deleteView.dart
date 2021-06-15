@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-
 import '../../constants.dart';
-
 import 'components/addNew.dart';
 import 'components/header.dart';
 import 'components/technologyList.dart';
-
 
 class DeleteView extends StatefulWidget {
   @override
@@ -40,9 +37,8 @@ class _DeleteViewState extends State<DeleteView> {
                     BoxShadow(
                       offset: Offset(0, 4),
                       blurRadius: 50,
-                      color: kTextColor.withOpacity(.1),
-                    ),
-                  ],
+                      color: kDeleteFuncTextColor.withOpacity(.1),
+                    ),],
                 ),
                 child: Stack(
                   children: <Widget>[

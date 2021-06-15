@@ -3,14 +3,18 @@ import 'package:flutter/material.dart';
 class DialogMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Text("Are sure you want to delete the technology ?" ,
-      style: TextStyle(
-          fontSize: 28,
-          color: Colors.white,
-          fontWeight: FontWeight.normal,
-          fontStyle: FontStyle.normal
+    return Padding(
+      padding: const EdgeInsets.only(left: 20 , right: 20),
+      child: Text("Technology is deleted successfully..!" ,
+        style: TextStyle(
+            fontSize: 28,
+            color: Colors.white,
+            fontWeight: FontWeight.normal,
+            fontStyle: FontStyle.normal,
+            fontFamily: 'Nunito'
+        ),
+        textAlign: TextAlign.center,
       ),
-      textAlign: TextAlign.center,
     );
   }
 }

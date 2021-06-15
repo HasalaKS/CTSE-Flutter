@@ -10,10 +10,10 @@ class Technology{
   DocumentReference documentReference;
 
   Technology({
-    this.techName,
-    this.techSite,
-    this.techDesc,
-    this.techImage
+      this.techName,
+      this.techSite,
+      this.techDesc,
+      this.techImage
   });
 
   Technology.fromMap(Map<String,dynamic> map, {this.documentReference}){
@@ -24,7 +24,7 @@ class Technology{
   }
 
   Technology.fromSnapshot(DocumentSnapshot snapshot)
-      :this.fromMap(snapshot.data(), documentReference:snapshot.reference);
+   :this.fromMap(snapshot.data(), documentReference:snapshot.reference);
 
   toJson(){
     return {'techName': techName, 'techSite': techSite, 'techDesc': techDesc, 'techImage': techImage};
