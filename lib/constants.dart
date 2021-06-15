@@ -28,7 +28,7 @@ const mainMenuHeading = TextStyle(
 );
 
 const mainMenuSubHeading = TextStyle(
-  fontSize: 23,
+  fontSize: 25,
   color: primaryDark,
   fontWeight: FontWeight.bold,
 );
@@ -45,8 +45,9 @@ const kHeadingextStyle1 = TextStyle(
 
 const kTitleTextStyle = TextStyle(
   fontSize: 25,
-  color: Colors.black54,
+  color: Colors.white,
   fontWeight: FontWeight.bold,
+  //backgroundColor: Colors.black45,
 );
 
 const kSubtitleTextSyule = TextStyle(

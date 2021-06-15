@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MainMenu(),
+      home: SplashScreen(),
       theme: ThemeData(
         fontFamily: 'Nunito',
         primaryColor: kPrimaryColor,
@@ -41,7 +41,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer(Duration(seconds: 7), () {
+    Timer(Duration(seconds: 5), () {
       Navigator.of(context)
           .pushReplacement(MaterialPageRoute(builder: (_) => MainMenu()));
     });

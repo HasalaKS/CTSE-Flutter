@@ -27,7 +27,8 @@ class MainMenu extends StatelessWidget {
       // ignore: missing_return
       builder: (context,snapshot){
         if(snapshot.hasError){
-          return Text('Error ${snapshot.error}');
+          //return Text('Error ${snapshot.error}');
+          return Container();
         }
         if(snapshot.hasData){
           print("Documents -> ${snapshot.data.docs.length}");
@@ -55,7 +56,7 @@ class MainMenu extends StatelessWidget {
         print("Click event on Container");
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => DetailsScreen()),
+          MaterialPageRoute(builder: (context) => DetailsScreen(technology : technology)),
         );
       },
       child: Container(
@@ -63,17 +64,32 @@ class MainMenu extends StatelessWidget {
         height: 200,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
+          color: Color(0xFFf8f4ff),
           image: DecorationImage(
             image: NetworkImage(technology.techImage),
             fit: BoxFit.fill,
           ),
+          boxShadow: [
+            BoxShadow(
+              offset: Offset(0, 1),
+              blurRadius: 5,
+              color: kTextColor.withOpacity(.2),
+            ),
+          ],
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text(
-              technology.techName,
-              style: kTitleTextStyle,
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 4),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16),
+                  color: Colors.black45,
+              ),
+              child: Text(
+                " " + technology.techName + " ",
+                style: kTitleTextStyle,
+              ),
             ),
           ],
         ),
@@ -127,11 +143,13 @@ class MainMenu extends StatelessWidget {
                               );
                             })),
                   ),
-                  Text("Welcome,", style: mainMenuHeading),
+                  Text("Welcome!", style: mainMenuHeading),
                   Text("Technology is best when it brings \npeople together",
                       style: mainMenuSubHeadingNormal),
                   SizedBox(height: 80),
-                  Text("Category", style: mainMenuSubHeading),
+                  Text("Technologies", style: mainMenuSubHeading),
+                  SizedBox(height: 20),
+                  Container(width: 0.0, height: 0.0),
                   Expanded(
                     child:Flexible(child: buildBody(context))
                   ),

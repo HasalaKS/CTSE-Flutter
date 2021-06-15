@@ -1,8 +1,20 @@
 import 'package:technology_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:technology_app/model/technology.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class DetailsScreen extends StatelessWidget {
+class DetailsScreen extends StatefulWidget {
+  final Technology technology;
+
+  DetailsScreen({Key key, this.technology}) : super(key: key);
+
+  @override
+  _DetailsScreenState createState() => _DetailsScreenState();
+}
+
+class _DetailsScreenState extends State<DetailsScreen> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,7 +23,7 @@ class DetailsScreen extends StatelessWidget {
         decoration: BoxDecoration(
           color: Color(0xFFF5F4EF),
           image: DecorationImage(
-            image: AssetImage("assets/images/ux_big.png"),
+            image: NetworkImage(widget.technology.techImage),
             alignment: Alignment.topRight,
           ),
         ),
@@ -48,7 +60,7 @@ class DetailsScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 16),
-                  Text("React", style: kHeadingextStyle),
+                  Text(widget.technology.techName, style: kHeadingextStyle),
                   SizedBox(height: 20),
                 ],
               ),
@@ -71,7 +83,7 @@ class DetailsScreen extends StatelessWidget {
                           Text("Description", style: kTitleTextStyle),
                           SizedBox(height: 40),
                           Text(
-                              "ReactJS offers graceful solutions to some of front-end programming’s most persistent issues, allowing you to build dynamic and interactive web apps with ease. It’s fast, scalable, flexible, powerful, and has a robust developer community that’s rapidly growing. There’s never been a better time to learn React.scalable, flexible, powerful, and has a robust developer community that’s rapidly growing. There’s never been a better time to learn React.",
+                              widget.technology.techDesc,
                               style: kSubtitleTextSyule.copyWith(
                                   fontWeight: FontWeight.w400, height: 1.5))
                         ],
@@ -99,18 +111,23 @@ class DetailsScreen extends StatelessWidget {
                         child: Row(
                           children: <Widget>[
                             Expanded(
-                              child: Container(
-                                alignment: Alignment.center,
-                                height: 56,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(40),
-                                  color: primaryDark,
-                                ),
-                                child: Text(
-                                  "Learn More",
-                                  style: kSubtitleTextSyule.copyWith(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
+                              child: InkWell(
+                                onTap: (){
+                                    launch(widget.technology.techSite);
+                                },
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  height: 56,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(40),
+                                    color: primaryDark,
+                                  ),
+                                  child: Text(
+                                    "Learn More",
+                                    style: kSubtitleTextSyule.copyWith(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -147,4 +164,5 @@ class MostViewedClipper extends CustomClipper<Path> {
   bool shouldReclip(CustomClipper oldClipper) {
     return false;
   }
+
 }
