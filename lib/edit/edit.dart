@@ -22,7 +22,6 @@ class _EditState extends State<Edit> {
   TextEditingController techNameController = TextEditingController();
   TextEditingController techSiteController = TextEditingController();
   TextEditingController techDescController = TextEditingController();
-  TextEditingController techImageController = TextEditingController();
 
   @override
   void initState() {
@@ -207,7 +206,7 @@ class _EditState extends State<Edit> {
                           height: 56,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(40),
-                            color: kBlueColor,
+                            color: Colors.deepPurple.shade300,
                           ),
                           child: Text(
                             "Submit",
@@ -234,7 +233,7 @@ class _EditState extends State<Edit> {
         CircleAvatar(
           radius: 50.0,
           backgroundImage: imgSelected == null
-              ? AssetImage(widget.technology.techImage)
+              ? NetworkImage(widget.technology.techImage)
               : FileImage(imgSelected),
         ),
         Positioned(
