@@ -5,7 +5,7 @@ class DialogMessage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 20 , right: 20),
-      child: Text("Technology is deleted sucessfully..!" ,
+      child: Text("Technology is deleted successfully..!" ,
         style: TextStyle(
             fontSize: 28,
             color: Colors.white,

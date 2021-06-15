@@ -35,7 +35,7 @@ const mainMenuSubHeading = TextStyle(
 const mainMenuSubHeadingNormal = TextStyle(
   fontSize: 18,
   color: Colors.white,
-  height:1.3,
+  height: 1.3,
 );
 const kHeadingextStyle1 = TextStyle(
   fontSize: 45,
@@ -80,3 +80,4 @@ const kSubtitleTextSyule1 = TextStyle(
 
 // Constant related to delete function
 const kDeleteFuncTextColor = Color(0xFF0D1333);
+

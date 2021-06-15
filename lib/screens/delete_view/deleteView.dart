@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-
+import '../../constants.dart';
 import 'components/addNew.dart';
 import 'components/header.dart';
 import 'components/technologyList.dart';
-
-import '../../constants.dart';
 
 class DeleteView extends StatefulWidget {
   @override

@@ -37,6 +37,7 @@ class _TechnologyListState extends State<TechnologyList> {
   Widget buildBody(BuildContext context){
     return StreamBuilder<QuerySnapshot>(
       stream: getAllTechnologies(),
+      // ignore: missing_return
       builder: (context,snapshot){
         if(snapshot.hasError){
           return Text('Error ${snapshot.error}');
@@ -67,13 +68,13 @@ class _TechnologyListState extends State<TechnologyList> {
             height: 70,
             width: 70,
             decoration: BoxDecoration(
-                shape: BoxShape.rectangle,
-                borderRadius: BorderRadius.all(Radius.circular(24)),
-                image: DecorationImage(
-                  scale: 4.2,
-                  image: AssetImage("assets/images/${technology.techImage}"),
-                  alignment: Alignment.center,
-                ),
+              shape: BoxShape.rectangle,
+              borderRadius: BorderRadius.all(Radius.circular(24)),
+              image: DecorationImage(
+                scale: 3.0,
+                image: NetworkImage(technology.techImage),
+                alignment: Alignment.center,
+              ),
             ),
           ),
           SizedBox(width : 15),
@@ -151,11 +152,11 @@ class _TechnologyListState extends State<TechnologyList> {
           Padding(
             padding: const EdgeInsets.only(left: 8),
             child: Text("Your Courses List",
-                style: TextStyle(
-                  fontSize: 25,
-                  color: Colors.black54,
-                  fontWeight: FontWeight.bold,
-                ),
+              style: TextStyle(
+                fontSize: 25,
+                color: Colors.black54,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
           Flexible(child: buildBody(context))

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:technology_app/add_screen.dart';
 
 import '../../../constants.dart';
@@ -36,9 +35,10 @@ class AddNew extends StatelessWidget {
               ),
               child: TextButton(
                 child: Text(
-                    "Add new",
+                    "Add New",
                     style: TextStyle(
                       fontSize: 20,
+                      fontWeight: FontWeight.bold,
                       color: Colors.white,
                     )
                 ),
@@ -47,11 +47,9 @@ class AddNew extends StatelessWidget {
                       context,
                       MaterialPageRoute(builder: (context) => AddScreen()),
                     );
-                  }
-              ),
+                  }),
             ),
-          )
-      ),
+          )),
     );
   }
 }

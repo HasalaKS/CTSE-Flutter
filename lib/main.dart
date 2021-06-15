@@ -1,13 +1,9 @@
 import 'dart:async';
-
-
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
-import 'package:firebase_core/firebase_core.dart';
-
 import 'package:technology_app/main_menu_screen.dart';
-
 import 'constants.dart';
 
 Future<void> main() async {
@@ -45,8 +41,9 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer(Duration(seconds: 7), (){
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => MainMenu()));
+    Timer(Duration(seconds: 7), () {
+      Navigator.of(context)
+          .pushReplacement(MaterialPageRoute(builder: (_) => MainMenu()));
     });
   }
 
@@ -61,7 +58,9 @@ class _SplashScreenState extends State<SplashScreen> {
           children: <Widget>[
             Text(
               "WELCOME TO SoloLearn",
-              style: TextStyle(fontFamily: 'Nunito', ),
+              style: TextStyle(
+                fontFamily: 'Nunito',
+              ),
             ),
             SizedBox(height: size.height * 0.05),
             SvgPicture.asset(
@@ -100,5 +99,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-

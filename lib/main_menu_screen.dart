@@ -37,26 +37,26 @@ class MainMenu extends StatelessWidget {
                   Align(
                     alignment: Alignment.topRight,
                     child: Container(
-                      alignment: Alignment.center,
-                      height: 52,
-                      width: 52,
-                      decoration: BoxDecoration(
-                        color: primaryDarkSemi,
-                        shape: BoxShape.circle,
-                      ),
-                      child: IconButton(
-                          icon: SvgPicture.asset("assets/icons/menu.svg"),
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => DeleteView()),
-                            );
-                          }
-                      )
-                    ),
+                        alignment: Alignment.center,
+                        height: 52,
+                        width: 52,
+                        decoration: BoxDecoration(
+                          color: primaryDarkSemi,
+                          shape: BoxShape.circle,
+                        ),
+                        child: IconButton(
+                            icon: SvgPicture.asset("assets/icons/menu.svg"),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => DeleteView()),
+                              );
+                            })),
                   ),
                   Text("Welcome,", style: mainMenuHeading),
-                  Text("Technology is best when it brings \npeople together", style: mainMenuSubHeadingNormal),
+                  Text("Technology is best when it brings \npeople together",
+                      style: mainMenuSubHeadingNormal),
                   SizedBox(height: 80),
                   Text("Category", style: mainMenuSubHeading),
                   Expanded(
@@ -67,15 +67,15 @@ class MainMenu extends StatelessWidget {
                       crossAxisSpacing: 20,
                       mainAxisSpacing: 20,
                       itemBuilder: (context, index) {
-                        return
-                        InkWell(
+                        return InkWell(
                           onTap: () {
                             print("Click event on Container");
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => DetailsScreen()),
+                              MaterialPageRoute(
+                                  builder: (context) => DetailsScreen()),
                             );
-                            },
+                          },
                           child: Container(
                             padding: EdgeInsets.all(20),
                             height: index.isEven ? 200 : 240,
