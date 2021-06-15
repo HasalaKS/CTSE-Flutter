@@ -80,11 +80,11 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text("Description", style: kTitleTextStyle),
+                          Text("Description", style: kTitleTextStyle2),
                           SizedBox(height: 40),
                           Text(
                               widget.technology.techDesc,
-                              style: kSubtitleTextSyule.copyWith(
+                              style: kSubtitleTextSyule2.copyWith(
                                   fontWeight: FontWeight.w400, height: 1.5))
                         ],
                       ),

@@ -50,11 +50,25 @@ const kTitleTextStyle = TextStyle(
   //backgroundColor: Colors.black45,
 );
 
+const kTitleTextStyle2 = TextStyle(
+  fontSize: 25,
+  color: Colors.black54,
+  fontWeight: FontWeight.bold,
+  //backgroundColor: Colors.black45,
+);
+
 const kSubtitleTextSyule = TextStyle(
   fontSize: 20,
   color: Colors.white,
   fontWeight: FontWeight.bold,
 );
+
+const kSubtitleTextSyule2 = TextStyle(
+  fontSize: 20,
+  color: Colors.black,
+  fontWeight: FontWeight.bold,
+);
+
 const kSubheadingextStyle = TextStyle(
   fontSize: 18,
   color: Color(0xFF61688B),
