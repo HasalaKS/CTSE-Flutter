@@ -33,12 +33,10 @@ class _EditState extends State<Edit> {
   }
 
   final ImagePicker _picker = ImagePicker();
-  PickedFile _imageFile;
-
-  //File techImageFile;
-  String imgUrl;
   File imgSelected;
+  String imgUrl;
 
+  //function to update data in the database
   updateTechnology(){
     try{
       FirebaseFirestore.instance.runTransaction((transaction) async{
@@ -48,11 +46,13 @@ class _EditState extends State<Edit> {
 
         await transaction.update(widget.technology.documentReference, {'techName': techNameController.text, 'techSite': techSiteController.text, 'techDesc': techDescController.text, 'techImage': imgUrl.toString()});
 
+        //Navigate back to technology list after updating
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => DeleteView()),
         );
 
+        //Successful message
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: const Text('Successfully added.'),
           duration: const Duration(seconds: 3),
@@ -231,6 +231,7 @@ class _EditState extends State<Edit> {
     );
   }
 
+  //Image holder
   Widget techImage() {
     return Stack(
       children: <Widget>[
@@ -260,6 +261,7 @@ class _EditState extends State<Edit> {
     );
   }
 
+  //Menu to pop up when uploading an image
   Widget bottomSheet(){
     return Container(
       height: 100.0,
@@ -300,6 +302,7 @@ class _EditState extends State<Edit> {
     );
   }
 
+  //Selecting the image
   void takePhoto(ImageSource source) async {
     final pickedFile = await _picker.getImage(
       source: source,

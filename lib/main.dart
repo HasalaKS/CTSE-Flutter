@@ -51,7 +51,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: kPrimaryColor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -69,31 +69,9 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             SizedBox(height: size.height * 0.05),
             CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(kPrimaryColor),
+              valueColor: AlwaysStoppedAnimation<Color>(primaryDark),
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: kPrimaryColor,
-        title: Text('SoloLearn'),
-      ),
-      body: Container(
-        child: Center(
-          child: Text('Home Page'),
         ),
       ),
     );
