@@ -54,7 +54,7 @@ class _EditState extends State<Edit> {
 
         //Successful message
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: const Text('Successfully added.'),
+          content: const Text('Successfully updated.'),
           duration: const Duration(seconds: 3),
         ));
       });

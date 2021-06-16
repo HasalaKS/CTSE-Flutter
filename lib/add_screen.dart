@@ -21,11 +21,8 @@ class _AddScreenState extends State<AddScreen> {
   TextEditingController techName = TextEditingController();
   TextEditingController techSite = TextEditingController();
   TextEditingController techDesc = TextEditingController();
-  TextEditingController techImage = TextEditingController();
 
-  //File techImageFile;
   String imgUrl;
-
   PickedFile _imageFile;
   File imgSelected;
 
